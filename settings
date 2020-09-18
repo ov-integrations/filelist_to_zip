@@ -1,0 +1,21 @@
+{
+	"OV": {
+		"UserName": "XXX",
+		"Password": "XXX",
+		"Url": "XXX.onevizion.com"
+	},
+    "SMTP": {
+        "UserName": "noreply@onevizion.com",
+        "Password": "emailpassword",
+        "Server": "smtp.office365.com",
+        "Port": "587",
+        "TLS": "True",
+        "To": "emailaddressforerrors-can also be a json list of email addresses"
+        },
+"TrackorType": "CheckList",
+"ReadyStatus": "CH_GENERATE_ZIP_DELIVERABLE",
+"BlobIdList": "CH_GENERATE_ZIP_CONTENTS",
+"ZipFieldName": "CH_CHECKLIST_ZIP_DELIVERABLE",
+"ZipFieldFileName": "CH_CHECKLIST_DELIV_FILE_NAME",
+"ZipErrorField" : "CH_GENERATE_ZIP_ERRORS"
+}
