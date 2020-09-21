@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 
-import boto3
-import onevizion
 import json
 import os
 import onevizion
