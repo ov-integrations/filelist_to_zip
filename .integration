@@ -1,4 +1,4 @@
 command = python3 filelist-to-zip.py
 settings_file_name = settings
-default_schedule = 0 0/15 0 0 * ?
+default_schedule = 0 0/15 * * * ?
 read_from_stdout = true
