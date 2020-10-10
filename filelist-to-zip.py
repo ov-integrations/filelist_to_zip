@@ -87,6 +87,8 @@ for cl in Req.jsonData:
 			except Exception as e:
 				print (e)
 
+			print(tmpFileName+'|'+FilePath+'/'+FileName)
+
 			zipObj.write(FilePath+'/'+FileName)
 			os.remove(FilePath+'/'+FileName)
 
