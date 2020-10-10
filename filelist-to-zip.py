@@ -40,6 +40,7 @@ if len(Req.errors)>0:
 	print(Req.errors)
 	quit(1)
 
+print("Found {x} records".format(x=len(Reg.jsonData)))
 for cl in Req.jsonData:
 	print('Starting '+cl['TRACKOR_KEY'])
 	try:
