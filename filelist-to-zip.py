@@ -84,14 +84,14 @@ for cl in Req.jsonData:
 			if not os.path.exists(FilePath):
 				os.makedirs(FilePath)
 			try:
-				shutil.move(tmpFileName,FilePath+'/'+FileName)
+				shutil.move(tmpFileName,FilePath+'/'+urllib.parse.unquote(tmpFileName))
 			except Exception as e:
 				print (e)
 
-			print(tmpFileName+'|'+FilePath+'/'+FileName)
+			print(tmpFileName+'|'+FilePath+'/'+urllib.parse.unquote(tmpFileName))
 
-			zipObj.write(FilePath+'/'+FileName)
-			os.remove(FilePath+'/'+FileName)
+			zipObj.write(FilePath+'/'+urllib.parse.unquote(tmpFileName))
+			os.remove(FilePath+'/'+urllib.parse.unquote(tmpFileName))
 
 	if hasErrors:
 		updateFields = {}
