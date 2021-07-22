@@ -73,25 +73,31 @@ for cl in Req.jsonData:
 			TrackorID, FieldName, BlobId, FilePath, FileName = f.split('|')
 
 			EFileReq = onevizion.Trackor(URL = OvUrl, userName=OvUserName, password=OvPassword)
-			tmpFileName = EFileReq.GetFile(trackorId=TrackorID, fieldName=FieldName)
+			tmpFileName = EFileReq.GetFile(blodDataId=BlobID)
 
 			#todo add error handling
 			if len(EFileReq.errors)>0:
 				hasErrors - True
 				errors = EFileReq.errors
 
-			# Do Local File copy
-			if not os.path.exists(FilePath):
-				os.makedirs(FilePath)
-			try:
-				shutil.move(tmpFileName,FilePath+'/'+urllib.parse.unquote(tmpFileName))
-			except Exception as e:
-				print (e)
+			if FilePath:
+				# Do Local File copy
+				if not os.path.exists(FilePath):
+					os.makedirs(FilePath)
+				try:
+					shutil.move(tmpFileName,FilePath+'/'+urllib.parse.unquote(tmpFileName))
+				except Exception as e:
+					print (e)
 
-			print(tmpFileName+'|'+FilePath+'/'+urllib.parse.unquote(tmpFileName))
+				print(tmpFileName+'|'+FilePath+'/'+urllib.parse.unquote(tmpFileName))
 
-			zipObj.write(FilePath+'/'+urllib.parse.unquote(tmpFileName))
-			os.remove(FilePath+'/'+urllib.parse.unquote(tmpFileName))
+				zipObj.write(FilePath+'/'+urllib.parse.unquote(tmpFileName))
+				os.remove(FilePath+'/'+urllib.parse.unquote(tmpFileName))
+			else:
+				print(tmpFileName+'|'+urllib.parse.unquote(tmpFileName))
+
+				zipObj.write(urllib.parse.unquote(tmpFileName))
+				os.remove(urllib.parse.unquote(tmpFileName))
 
 	if hasErrors:
 		updateFields = {}
