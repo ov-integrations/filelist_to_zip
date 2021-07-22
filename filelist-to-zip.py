@@ -73,7 +73,7 @@ for cl in Req.jsonData:
 			TrackorID, FieldName, BlobId, FilePath, FileName = f.split('|')
 
 			EFileReq = onevizion.Trackor(URL = OvUrl, userName=OvUserName, password=OvPassword)
-			tmpFileName = EFileReq.GetFile(blodDataId=BlobID)
+			tmpFileName = EFileReq.GetFile(blobDataId=BlobId)
 
 			#todo add error handling
 			if len(EFileReq.errors)>0:
